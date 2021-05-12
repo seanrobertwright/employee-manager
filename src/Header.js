@@ -3,6 +3,7 @@ import { ShellBar, Button } from '@ui5/webcomponents-react';
 import '@ui5/webcomponents-icons/dist/Assets.js';
 
 class Header extends Component {
+    
     render() {
         return (
             <ShellBar primary-title="SHITS" secondary-title="Safety & Health Information Tracking System" show-co-pilot>
