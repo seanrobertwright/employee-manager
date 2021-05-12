@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import '@ui5/webcomponents-icons/dist/Assets.js';
-import Navigation from './pages/Navigation';
+import Navigation from './components/Navigation';
 import {    
             FlexibleColumnLayout, 
             Page } from "@ui5/webcomponents-react";
