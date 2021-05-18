@@ -12,8 +12,9 @@ import {
         } from 'react-holy-grail-layout';
 
 import MainHeader from './components/Header';
+import NewEmployee from './pages/EmployeeManagement/NewEmployee';
 
-class App extends Component {
+class App2 extends Component {
     render() {
         return (
             <div>
@@ -23,7 +24,7 @@ class App extends Component {
                     </Header>
                     <Body>
                         <Content>
-
+                             <NewEmployee/>
                         </Content>
                         <Aside left primary>
                             <Navigation/>
@@ -36,4 +37,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default App2;

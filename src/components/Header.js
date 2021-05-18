@@ -7,7 +7,7 @@ class Header extends Component {
     render() {
         return (
             <ShellBar primary-title="SHITS" secondary-title="Safety & Health Information Tracking System" show-co-pilot>
-                <Button icon="menu" slot="startButton" id="startButton"></Button>>
+                <Button icon="menu" slot="startButton" id="startButton"></Button>
             </ShellBar>
         );
     }
