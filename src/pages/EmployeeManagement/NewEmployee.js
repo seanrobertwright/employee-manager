@@ -10,10 +10,8 @@ class NewEmployee extends Component {
     render(){
     return (
         <div>
-            <Dialog ref={{current: '[Circular]'}} 
-                footer={<Button>Submit</Button>}
-                headerText="New Employee">
-                <Form>
+            
+                <Form title="New Employee">
                     <FormGroup title="Personal Information">
                             <FormItem label={<Label>First Name:</Label>}>
                                 <Input />
@@ -29,7 +27,7 @@ class NewEmployee extends Component {
                             </FormItem> 
                     </FormGroup>
                 </Form>
-            </Dialog>
+            
             
         </div>
     )};
