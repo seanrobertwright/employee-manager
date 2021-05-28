@@ -9,6 +9,7 @@ export default class Navigation extends Component {
         this.state = {
             menuState: true
         }
+        this.homeSelected = this.homeSelected.bind(this);
     }
 
     componentDidMount() {
@@ -16,15 +17,28 @@ export default class Navigation extends Component {
         console.log("Toggled");
     }
 
-    
+    homeSelected(e) {
+        const menuSelection = e.detail.item.id;
+        if (menuSelection === "home") {
+
+        }
+        if (menuSelection === "employees") {
+
+        }
+        if (menuSelection === "locations") {
+            
+        }
+        alert(e.detail.item.text + " Clicked");
+        console.log(e.detail.item.text);
+    }
 
     render() {
     return (
-        <SideNavigation collapsed={this.state.menuState}>
-                    <SideNavigationItem text="Home" icon="home"></SideNavigationItem>
-                    <SideNavigationItem text="Employees" icon="group"></SideNavigationItem>
-                    <SideNavigationItem text="Locations" icon="locate-me"></SideNavigationItem>
-                    <SideNavigationItem slot="fixedItems" text="Administration" icon="home"></SideNavigationItem>
+        <SideNavigation collapsed={this.state.menuState} onSelectionChange={(e) => this.homeSelected(e)}>
+                    <SideNavigationItem text="Home" icon="home" id="home"></SideNavigationItem>
+                    <SideNavigationItem text="Employees" icon="group" id="employees"></SideNavigationItem>
+                    <SideNavigationItem text="Locations" icon="locate-me" id="locations"></SideNavigationItem>
+                    <SideNavigationItem slot="fixedItems" text="Administration" icon="home" id="administration"></SideNavigationItem>
         </SideNavigation>
     );
     }

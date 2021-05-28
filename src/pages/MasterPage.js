@@ -5,9 +5,9 @@ import {
             Header,
             Body,
             Content,
-            Aside,
             Footer
         } from 'react-holy-grail-layout';
+import * as Layout from 'react-holy-grail-layout';
 
 import MainHeader from '../components/Header';
 import Employees from './EmployeeManagement/Employees';
@@ -15,7 +15,9 @@ import Employees from './EmployeeManagement/Employees';
 import React, { Component } from 'react'
 
 export default class MasterPage extends Component {
+    
     render() {
+        const Aside = Layout.Aside.extend.attrs({width: 'fit-content', padding: '50px'})``
         return (
             <Container>
                 <Header>
