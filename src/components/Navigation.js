@@ -37,7 +37,7 @@ export default class Navigation extends Component {
         <SideNavigation collapsed={this.state.menuState} onSelectionChange={(e) => this.homeSelected(e)}>
                     <SideNavigationItem text="Home" icon="home" id="home"></SideNavigationItem>
                     <SideNavigationItem text="Employees" icon="group" id="employees"></SideNavigationItem>
-                    <SideNavigationItem text="Locations" icon="locate-me" id="locations"></SideNavigationItem>
+                    <SideNavigationItem text="Risk Assessments" icon="alert" id="locations"></SideNavigationItem>
                     <SideNavigationItem slot="fixedItems" text="Administration" icon="home" id="administration"></SideNavigationItem>
         </SideNavigation>
     );
