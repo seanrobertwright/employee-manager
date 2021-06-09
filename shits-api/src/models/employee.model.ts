@@ -30,6 +30,11 @@ export class Employee extends Entity {
 
   @hasOne(() => Site)
   site: Site;
+
+  @property({
+    type: 'number',
+  })
+  participant?: number;
   // Define well-known properties here
 
   // Indexer property to allow additional data

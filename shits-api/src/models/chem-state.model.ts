@@ -1,7 +1,7 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class Site extends Entity {
+export class ChemState extends Entity {
   @property({
     type: 'number',
     id: true,
@@ -16,27 +16,17 @@ export class Site extends Entity {
   body: string;
 
   @property({
-    type: 'string',
-  })
-  plantCode?: string;
-
-  @property({
     type: 'number',
   })
-  employeeId?: number;
+  chemState?: number;
 
-  @property({
-    type: 'number',
-  })
-  csRiskAssessmentId?: number;
-
-  constructor(data?: Partial<Site>) {
+  constructor(data?: Partial<ChemState>) {
     super(data);
   }
 }
 
-export interface SiteRelations {
+export interface ChemStateRelations {
   // describe navigational properties here
 }
 
-export type SiteWithRelations = Site & SiteRelations;
+export type ChemStateWithRelations = ChemState & ChemStateRelations;

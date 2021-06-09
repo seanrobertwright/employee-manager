@@ -22,7 +22,7 @@ export default function Main() {
                 <SideNavigation>
                     <SideNavigationItem text="Home" icon="home"></SideNavigationItem>
                     <SideNavigationItem text="Employees" icon="group"></SideNavigationItem>
-                    <SideNavigationItem text="Locations" icon="locate-me"></SideNavigationItem>
+                    <SideNavigationItem text="Risk Assessments" icon="alert"></SideNavigationItem>
                     <SideNavigationItem slot="fixedItems" text="Administration" icon="home"></SideNavigationItem>
                 </SideNavigation>
                 

@@ -4,3 +4,7 @@ export * from './employee-type.repository';
 export * from './employee.repository';
 export * from './sbu.repository';
 export * from './site.repository';
+export * from './chem-state.repository';
+export * from './cs-risk-assessment.repository';
+export * from './hazardous-chemical.repository';
+export * from './unit.repository';
