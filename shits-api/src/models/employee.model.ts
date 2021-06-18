@@ -1,5 +1,6 @@
 import {Entity, model, property, hasOne} from '@loopback/repository';
 import {CostCenter} from './cost-center.model';
+import {Site} from './site.model';
 
 @model()
 export class Employee extends Entity {
@@ -27,9 +28,6 @@ export class Employee extends Entity {
     required: true,
   })
   email: string;
-
-  @hasOne(() => CostCenter)
-  costCenter: CostCenter;
 
   constructor(data?: Partial<Employee>) {
     super(data);

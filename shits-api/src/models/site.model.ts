@@ -1,4 +1,4 @@
-import {Entity, model, property} from '@loopback/repository';
+import {belongsTo, Entity, model, property} from '@loopback/repository';
 
 @model()
 export class Site extends Entity {
@@ -14,7 +14,6 @@ export class Site extends Entity {
     required: true,
   })
   siteName: string;
-
 
   constructor(data?: Partial<Site>) {
     super(data);
