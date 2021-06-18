@@ -1,7 +1,7 @@
 import {Entity, model, property, hasOne} from '@loopback/repository';
-import {Site} from './site.model';
+import {CostCenter} from './cost-center.model';
 
-@model({settings: {strict: false}})
+@model()
 export class Employee extends Entity {
   @property({
     type: 'number',
@@ -28,18 +28,8 @@ export class Employee extends Entity {
   })
   email: string;
 
-  @hasOne(() => Site)
-  site: Site;
-
-  @property({
-    type: 'number',
-  })
-  participant?: number;
-  // Define well-known properties here
-
-  // Indexer property to allow additional data
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [prop: string]: any;
+  @hasOne(() => CostCenter)
+  costCenter: CostCenter;
 
   constructor(data?: Partial<Employee>) {
     super(data);

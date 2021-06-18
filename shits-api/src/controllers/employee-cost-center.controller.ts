@@ -17,22 +17,22 @@ import {
 } from '@loopback/rest';
 import {
   Employee,
-  Site,
+  CostCenter,
 } from '../models';
 import {EmployeeRepository} from '../repositories';
 
-export class EmployeeSiteController {
+export class EmployeeCostCenterController {
   constructor(
     @repository(EmployeeRepository) protected employeeRepository: EmployeeRepository,
   ) { }
 
-  @get('/employees/{id}/site', {
+  @get('/employees/{id}/cost-center', {
     responses: {
       '200': {
-        description: 'Employee has one Site',
+        description: 'Employee has one CostCenter',
         content: {
           'application/json': {
-            schema: getModelSchemaRef(Site),
+            schema: getModelSchemaRef(CostCenter),
           },
         },
       },
@@ -40,16 +40,16 @@ export class EmployeeSiteController {
   })
   async get(
     @param.path.number('id') id: number,
-    @param.query.object('filter') filter?: Filter<Site>,
-  ): Promise<Site> {
-    return this.employeeRepository.site(id).get(filter);
+    @param.query.object('filter') filter?: Filter<CostCenter>,
+  ): Promise<CostCenter> {
+    return this.employeeRepository.costCenter(id).get(filter);
   }
 
-  @post('/employees/{id}/site', {
+  @post('/employees/{id}/cost-center', {
     responses: {
       '200': {
         description: 'Employee model instance',
-        content: {'application/json': {schema: getModelSchemaRef(Site)}},
+        content: {'application/json': {schema: getModelSchemaRef(CostCenter)}},
       },
     },
   })
@@ -58,22 +58,22 @@ export class EmployeeSiteController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(Site, {
-            title: 'NewSiteInEmployee',
+          schema: getModelSchemaRef(CostCenter, {
+            title: 'NewCostCenterInEmployee',
             exclude: ['id'],
             optional: ['employeeId']
           }),
         },
       },
-    }) site: Omit<Site, 'id'>,
-  ): Promise<Site> {
-    return this.employeeRepository.site(id).create(site);
+    }) costCenter: Omit<CostCenter, 'id'>,
+  ): Promise<CostCenter> {
+    return this.employeeRepository.costCenter(id).create(costCenter);
   }
 
-  @patch('/employees/{id}/site', {
+  @patch('/employees/{id}/cost-center', {
     responses: {
       '200': {
-        description: 'Employee.Site PATCH success count',
+        description: 'Employee.CostCenter PATCH success count',
         content: {'application/json': {schema: CountSchema}},
       },
     },
@@ -83,28 +83,28 @@ export class EmployeeSiteController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(Site, {partial: true}),
+          schema: getModelSchemaRef(CostCenter, {partial: true}),
         },
       },
     })
-    site: Partial<Site>,
-    @param.query.object('where', getWhereSchemaFor(Site)) where?: Where<Site>,
+    costCenter: Partial<CostCenter>,
+    @param.query.object('where', getWhereSchemaFor(CostCenter)) where?: Where<CostCenter>,
   ): Promise<Count> {
-    return this.employeeRepository.site(id).patch(site, where);
+    return this.employeeRepository.costCenter(id).patch(costCenter, where);
   }
 
-  @del('/employees/{id}/site', {
+  @del('/employees/{id}/cost-center', {
     responses: {
       '200': {
-        description: 'Employee.Site DELETE success count',
+        description: 'Employee.CostCenter DELETE success count',
         content: {'application/json': {schema: CountSchema}},
       },
     },
   })
   async delete(
     @param.path.number('id') id: number,
-    @param.query.object('where', getWhereSchemaFor(Site)) where?: Where<Site>,
+    @param.query.object('where', getWhereSchemaFor(CostCenter)) where?: Where<CostCenter>,
   ): Promise<Count> {
-    return this.employeeRepository.site(id).delete(where);
+    return this.employeeRepository.costCenter(id).delete(where);
   }
 }

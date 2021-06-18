@@ -1,8 +1,8 @@
 import {inject, Getter} from '@loopback/core';
 import {DefaultCrudRepository, repository, HasOneRepositoryFactory} from '@loopback/repository';
 import {ShitsDataSource} from '../datasources';
-import {Employee, EmployeeRelations, Site} from '../models';
-import {SiteRepository} from './site.repository';
+import {Employee, EmployeeRelations, CostCenter} from '../models';
+import {CostCenterRepository} from './cost-center.repository';
 
 export class EmployeeRepository extends DefaultCrudRepository<
   Employee,
@@ -10,13 +10,13 @@ export class EmployeeRepository extends DefaultCrudRepository<
   EmployeeRelations
 > {
 
-  public readonly site: HasOneRepositoryFactory<Site, typeof Employee.prototype.id>;
+  public readonly costCenter: HasOneRepositoryFactory<CostCenter, typeof Employee.prototype.id>;
 
   constructor(
-    @inject('datasources.shits') dataSource: ShitsDataSource, @repository.getter('SiteRepository') protected siteRepositoryGetter: Getter<SiteRepository>,
+    @inject('datasources.shits') dataSource: ShitsDataSource, @repository.getter('CostCenterRepository') protected costCenterRepositoryGetter: Getter<CostCenterRepository>,
   ) {
     super(Employee, dataSource);
-    this.site = this.createHasOneRepositoryFactoryFor('site', siteRepositoryGetter);
-    this.registerInclusionResolver('site', this.site.inclusionResolver);
+    this.costCenter = this.createHasOneRepositoryFactoryFor('costCenter', costCenterRepositoryGetter);
+    this.registerInclusionResolver('costCenter', this.costCenter.inclusionResolver);
   }
 }

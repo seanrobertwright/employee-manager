@@ -13,22 +13,8 @@ export class Site extends Entity {
     type: 'string',
     required: true,
   })
-  body: string;
+  siteName: string;
 
-  @property({
-    type: 'string',
-  })
-  plantCode?: string;
-
-  @property({
-    type: 'number',
-  })
-  employeeId?: number;
-
-  @property({
-    type: 'number',
-  })
-  csRiskAssessmentId?: number;
 
   constructor(data?: Partial<Site>) {
     super(data);

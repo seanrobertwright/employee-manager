@@ -13,7 +13,7 @@ export class Sbu extends Entity {
     type: 'string',
     required: true,
   })
-  body: string;
+  sbuName: string;
 
 
   constructor(data?: Partial<Sbu>) {

@@ -13,7 +13,7 @@ export class EmployeeType extends Entity {
     type: 'string',
     required: true,
   })
-  body: string;
+  employeeType: string;
 
 
   constructor(data?: Partial<EmployeeType>) {
