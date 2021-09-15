@@ -11,6 +11,7 @@ import * as Layout from 'react-holy-grail-layout';
 
 import MainHeader from '../components/Header';
 import Employees from './EmployeeManagement/Employees';
+import Home from './Home';
 
 import React, { Component } from 'react'
 
@@ -25,7 +26,7 @@ export default class MasterPage extends Component {
                 </Header>
                 <Body>
                     <Content>
-                        <Employees/>
+                        <Home/>
                     </Content>
                     <Aside left primary>
                         <Navigation />

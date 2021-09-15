@@ -1,6 +1,4 @@
-import {Entity, model, property, hasOne} from '@loopback/repository';
-import {CostCenter} from './cost-center.model';
-import {Site} from './site.model';
+import {Entity, model, property} from '@loopback/repository';
 
 @model()
 export class Employee extends Entity {
@@ -15,19 +13,30 @@ export class Employee extends Entity {
     type: 'string',
     required: true,
   })
-  lastName: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
   firstName: string;
 
   @property({
     type: 'string',
     required: true,
   })
+  lastName: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
   email: string;
+
+  @property({
+    type: 'number',
+  })
+  HRBP?: number;
+
+  @property({
+    type: 'number',
+  })
+  supervisor?: number;
+
 
   constructor(data?: Partial<Employee>) {
     super(data);
