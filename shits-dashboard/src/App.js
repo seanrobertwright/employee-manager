@@ -12,8 +12,8 @@ import './App.css';
 function App() {
   return (
     <Admin dataProvider={lb4Provider('http:localhost:4000')}>
-      <Resource name='cost-centers' create={CreateCostCenter} list={CostCenterList} edit={CostCenterEdit}/>
-      <Resource name='sbus' create={CreateSBU} list={SBUList} edit={SBUEdit}/>
+      <Resource name='cost-centers' create={CreateCostCenter} list={CostCenterList} edit={CostCenterEdit} options={{label:'Cost Centers'}}/>
+      <Resource name='sbus' create={CreateSBU} list={SBUList} edit={SBUEdit} options={{label:'SBUs'}}/>
     </Admin>  
     );
 }

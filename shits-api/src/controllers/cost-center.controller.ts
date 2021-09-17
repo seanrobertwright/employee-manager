@@ -20,7 +20,7 @@ import {
 import {CostCenter} from '../models';
 import {CostCenterRepository} from '../repositories';
 
-export class CostCenterController {
+export class CostcenterController {
   constructor(
     @repository(CostCenterRepository)
     public costCenterRepository : CostCenterRepository,
@@ -37,12 +37,44 @@ export class CostCenterController {
         'application/json': {
           schema: getModelSchemaRef(CostCenter, {
             title: 'NewCostCenter',
-            exclude: ['id'],
+            
           }),
         },
       },
     })
+    costCenter: CostCenter,
+  ): Promise<CostCenter> {
+    return this.costCenterRepository.create(costCenter);
+  }
+
+  @get('/cost-centers/count')
+  @response(200, {
+    description: 'CostCenter model count',
+    content: {'application/json': {schema: CountSchema}},
+  })
+  async count(
+    @param.where(CostCenter) where?: Where<CostCenter>,
+  ): Promise<Count> {
+    return this.costCenterRepository.count(where);
+  }
+
+  @get('/cost-centers')
+  @response(200, {
+    description: 'Array of CostCenter model instances',
+    content: {
+      'application/json': {
+        schema: {
+          type: 'array',
+          items: getModelSchemaRef(CostCenter, {includeRelations: true}),
+        },
+      },
+    },
+  })
+  async find(
     @param.filter(CostCenter) filter?: Filter<CostCenter>,
+  ): Promise<CostCenter[]> {
+    return this.costCenterRepository.find(filter);
+  }
 
   @patch('/cost-centers')
   @response(200, {
