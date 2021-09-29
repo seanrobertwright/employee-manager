@@ -5,3 +5,4 @@ export * from './employee-type.model';
 export * from './employee.model';
 export * from './masterdata.model';
 export * from './cost-center.model';
+export * from './site.model';

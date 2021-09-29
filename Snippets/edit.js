@@ -1,7 +1,7 @@
 import React from 'react'
 import {Edit, SimpleForm, TextInput} from 'react-admin'
 
-const [component]Edit = (props) => (
+const xEdit = (props) => (
     <Edit {...props} >
         <SimpleForm>
             <TextInput disabled source=''/>
@@ -11,4 +11,4 @@ const [component]Edit = (props) => (
     </Edit>
 );
 
-export default [component]Edit;
+export default xEdit;
