@@ -1,3 +1,11 @@
+import { AuthenticationComponent } from '@loopback/authentication';
+import {
+    JWTAuthenticationComponent,
+    SECURITY_SCHEME_SPEC,
+    UserServiceBindings
+} from '@loopback/authentication-jwt';
+import {ShitsDataSource} from './datasources';
+
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
 import {
@@ -40,5 +48,11 @@ export class ShitsApiApplication extends BootMixin(
         nested: true,
       },
     };
+    // Mount authentication system
+    this.component(AuthenticationComponent);
+    // Mount jwt component
+    this.component(JWTAuthenticationComponent);
+    // Bind datasource
+    this.dataSource(ShitsDataSource, UserServiceBindings.DATASOURCE_NAME);
   }
 }
