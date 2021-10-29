@@ -8,4 +8,8 @@ import {
     MenuProps,
 } from 'react-admin';
 
-const Menu = ()
+const Menu = () => {
+    return(0);
+}
+
+export default Menu;
