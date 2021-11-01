@@ -1,7 +1,7 @@
-import React from 'react'
-import {Edit, SimpleForm, TextInput} from 'react-admin';
+import React, { FC } from 'react'
+import {Edit, SimpleForm, TextInput, CreateProps} from 'react-admin';
 
-const CostCenterEdit = (props) => (
+const CostCenterEdit: FC<CreateProps> = (props) => (
     <Edit {...props} >
         <SimpleForm>
             <TextInput disabled source='id'/>
