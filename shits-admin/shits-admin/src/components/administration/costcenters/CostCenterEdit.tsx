@@ -1,12 +1,12 @@
-import React, { FC } from 'react'
+import React from 'react'
 import {Edit, SimpleForm, TextInput, CreateProps} from 'react-admin';
 
-const CostCenterEdit: FC<CreateProps> = (props) => (
+const CostCenterEdit = (props: CreateProps) => (
     <Edit {...props} >
         <SimpleForm>
             <TextInput disabled source='id'/>
-            <TextInput source='costCenterNumber' />
             <TextInput source='costCenterName'/>
+            <TextInput source='costCenterNumber' />
         </SimpleForm>
     </Edit>
 );

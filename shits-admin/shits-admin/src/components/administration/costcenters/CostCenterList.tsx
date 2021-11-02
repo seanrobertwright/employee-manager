@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
+import React from 'react'
 import {List, Datagrid, TextField, Filter, SearchInput, CreateProps} from 'react-admin';
 
-const CostCenterFilter: FC<CreateProps> = (props) => (
+const CostCenterFilter = (props: CreateProps) => (
     <Filter {...props}>
         <SearchInput placeholder="Cost Center Name" source='costCenterName' resettable alwaysOn />
     </Filter>
@@ -9,7 +9,7 @@ const CostCenterFilter: FC<CreateProps> = (props) => (
 
 
 
-const CostCenterList: FC<CreateProps> = (props) => {
+const CostCenterList = (props: CreateProps) => {
     return (
        <List {...props} filters={<CostCenterFilter/>}>
             <Datagrid rowClick='edit'>
