@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FC, Fragment, ReactElement } from 'react';
+import { FC, Fragment, ReactElement, ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import {
     List,
@@ -10,25 +10,57 @@ import {
     Tooltip,
 } from '@material-ui/core';
 import { ReduxState } from 'ra-core';
-import { ExpandLessTwoTone } from '@material-ui/icons';
+import { ExpandMore } from '@material-ui/icons';
 
-const SubMenu: FC<Props> = ({
-    handleToggle,
-    isOpen,
-    name,
-    icon,
-    children,
-    dense
-}) => {
-    const sideeIsOpen = useSelector<ReduxState, boolean>(
+interface Props {
+    dense: boolean;
+    handleToggle: () => void;
+    icon: ReactElement;
+    isOpen: boolean;
+    name: string;
+    children: ReactNode;
+}
+
+const SubMenu = (props: Props) => {
+    const { handleToggle, isOpen, name, icon, children, dense } = props;
+    
+    const sidebarIsOpen = useSelector<ReduxState, boolean>(
         state => state.admin.ui.sidebarOpen
     );
 
     const header = (
-        <MenuItem dense={dense} button onClick{handleToggle}>
+        <MenuItem dense={dense} button onClick={handleToggle}>
             <ListItemIcon>
-                {isOpen ? <ExpandMore> : icon}
+                {isOpen ? <ExpandMore /> : icon}
             </ListItemIcon>
         </MenuItem>
-    )
-}
+
+    );
+    return (
+        <Fragment>
+            {sidebarIsOpen || isOpen ? (
+                header
+            ) : (
+                <Tooltip title={translate(name)} placement="right">
+                    {header}
+                </Tooltip>
+            )}
+            <Collapse in={isOpen} timeout="auto" unmountOnExit>
+                <List
+                    dense={dense}
+                    component="div"
+                    disablePadding
+                    className={
+                        sidebarIsOpen
+                            ? classes.sidebarIsOpen
+                            : classes.sidebarIsClosed
+                    }
+                >
+                    {children}
+                </List>
+            </Collapse>
+        </Fragment>
+        };
+};
+
+export default SubMenu;
