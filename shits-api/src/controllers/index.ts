@@ -4,3 +4,5 @@ export * from './employee-type.controller';
 export * from './cost-center.controller';
 export * from './sbu.controller';
 export * from './site.controller';
+
+export * from './employee.controller';

@@ -13,29 +13,19 @@ export class Employee extends Entity {
     type: 'string',
     required: true,
   })
-  firstName: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
   lastName: string;
 
   @property({
     type: 'string',
     required: true,
   })
+  firstName: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
   email: string;
-
-  @property({
-    type: 'number',
-  })
-  HRBP?: number;
-
-  @property({
-    type: 'number',
-  })
-  supervisor?: number;
 
 
   constructor(data?: Partial<Employee>) {
