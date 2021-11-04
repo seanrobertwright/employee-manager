@@ -41,7 +41,7 @@ const SubMenu = (props: Props) => {
             {sidebarIsOpen || isOpen ? (
                 header
             ) : (
-                <Tooltip title={translate(name)} placement="right">
+                <Tooltip title={"Tooltip!"} placement="right">
                     {header}
                 </Tooltip>
             )}
@@ -49,18 +49,13 @@ const SubMenu = (props: Props) => {
                 <List
                     dense={dense}
                     component="div"
-                    disablePadding
-                    className={
-                        sidebarIsOpen
-                            ? classes.sidebarIsOpen
-                            : classes.sidebarIsClosed
-                    }
-                >
+                    disablePadding>
                     {children}
                 </List>
             </Collapse>
         </Fragment>
-        };
+        
+    );
 };
 
 export default SubMenu;

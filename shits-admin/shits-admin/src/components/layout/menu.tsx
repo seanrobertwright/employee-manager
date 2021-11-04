@@ -42,10 +42,10 @@ const Menu = ({ dense = false}: MenuProps) => {
             {' '}
             <DashboardMenuItem />
             <SubMenu
-                handleToggle={() => handleToggle('menuSales')}
+                handleToggle={() => handleToggle('menuEmployee')}
                 isOpen={state.menuSales}
                 name="pos.menu.sales"
-                icon={<orders.icon />}
+                icon={<oemployees.icon />}
                 dense={dense}
             >
                 <MenuItemLink
