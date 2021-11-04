@@ -1,0 +1,40 @@
+employee
+    -id
+    -lastName
+    -firstName
+    -email
+    -telephone
+    -site
+    -sbu
+    -position
+    -manager
+    -hrbp
+    -startDate
+    -endDate
+    -status
+    -type
+
+site 
+    -id
+    -siteName
+    -plantCode
+
+employeeType
+    -id
+    -typeName
+
+employeeStatus
+    -id
+    -status [active|inactive|relocated]
+
+sbu
+    -id
+    -sbuName
+    -sbuShortName
+    -costCenter
+
+costcenters
+    -id
+    -costCenterName
+    -costCenterNumber
+

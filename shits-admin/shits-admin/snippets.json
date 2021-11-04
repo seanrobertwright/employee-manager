@@ -1,0 +1,36 @@
+{
+    "React-Admin Create": {
+    "prefix": "radcr",
+    "body": [
+      "import React from 'react'",
+      "import { Create, useNotify, useRefresh, useRedirect, CreateProps} from 'react-admin';",
+      "const ${TM_FILENAME_BASE}Create = (props: CreateProps) => {",
+      "    const notify = useNotify();",
+      "    const refresh = useRefresh();",
+      "    const redirect = useRedirect();",
+      "",
+      "    const onSuccess = (data: any) => {",
+      "        ",
+      "        notify(`$1`, { type: 'success' });",
+      "       ",
+      "        redirect('/$2');",
+      "        refresh();",
+      "    };",
+      "",
+      "    const onFailure = (error: Error) => {",
+      "  ",
+      "        notify(`$3${error.message}`);",
+      "        redirect('/$4');",
+      "        refresh();",
+      "    }",
+      "    return (",
+      "        <Create {...props} title='$5' onSuccess={onSuccess} onFailure={onFailure}>",
+      "            $6",
+      "        </Create>",
+      "    );",
+      "}",
+      "export default ${TM_FILENAME_BASE}Create;"
+    ],
+    "description": "React-Admin Create"
+  }
+}

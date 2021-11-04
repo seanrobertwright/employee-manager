@@ -1,0 +1,81 @@
+{
+	"React-Admin Create": {
+		"prefix": "radcr",
+		"body": [
+		  "import React from 'react'",
+		  "import { Create, SimpleForm, useNotify, useRefresh, useRedirect, CreateProps} from 'react-admin';",
+		  "const ${TM_FILENAME_BASE} = (props: CreateProps) => {",
+		  "    const notify = useNotify();",
+		  "    const refresh = useRefresh();",
+		  "    const redirect = useRedirect();",
+		  "    const onSuccess = (data: any) => {",
+		  "        ",
+		  "        notify(`$1`, { type: 'success' });",
+		  "       ",
+		  "        redirect('/$2');",
+		  "        refresh();",
+		  "    };",
+		  "",
+		  "    const onFailure = (error: Error) => {",
+		  "  ",
+		  "        notify(`$3${error.message}`);",
+		  "        redirect('/$4');",
+		  "        refresh();",
+		  "    }",
+		  "    return (",
+		  "        <Create {...props} title='$5' onSuccess={onSuccess} onFailure={onFailure}>",
+		  "            <SimpleForm>",
+		  "                 $6",
+		  "            </SimpleForm>",
+		  "        </Create>",
+		  "    );",
+		  "}",
+		  "export default ${TM_FILENAME_BASE};"
+		],
+		"description": "React-Admin Create"
+	  },
+	  "React-Admin Edit": {
+		"prefix": "raded",
+		"body": [
+		  "import React from 'react'",
+		  "import {Edit, SimpleForm, CreateProps} from 'react-admin';",
+		  "",
+		  "const ${TM_FILENAME_BASE} = (props: CreateProps) => (",
+		  "    <Edit {...props} >",
+		  "        <SimpleForm>",
+		  "            $1",
+		  "        </SimpleForm>",
+		  "    </Edit>",
+		  ");",
+		  "",
+		  "export default ${TM_FILENAME_BASE};"
+		],
+		"description": "React-Admin Edit"
+	  },
+	  "React-Admin List": {
+		"prefix": "radli",
+		"body": [
+		  "import React from 'react'",
+		  "import {List, Datagrid, Filter, SearchInput, CreateProps} from 'react-admin';",
+		  "",
+		  "const ${TM_FILENAME_BASE}Filter = (props: CreateProps) => (",
+		  "    <Filter {...props}>",
+		  "        <SearchInput placeholder=\"$1\" source='$2' resettable alwaysOn />",
+		  "    </Filter>",
+		  ")",
+		  "",
+		  "const ${TM_FILENAME_BASE} = (props: CreateProps) => {",
+		  "    return (",
+		  "       <List {...props} filters={<${TM_FILENAME_BASE}Filter/>}>",
+		  "            <Datagrid rowClick='edit'>",
+		  "                $3         ",
+		  "            </Datagrid>",
+		  "        </List> ",
+		  "    );",
+		  "}",
+		  "",
+		  "export default ${TM_FILENAME_BASE};"
+		],
+		"description": "React-Admin List"
+	  }
+}
