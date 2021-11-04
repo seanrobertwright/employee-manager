@@ -17,10 +17,6 @@
     "ra-data-lb4": "^0.4.0",
     "react": "^17.0.2",
     "react-admin": "^3.19.0",
-<<<<<<< HEAD
-=======
-    "react-admin-lb4": "^1.0.3",
->>>>>>> af6db937ce2e329e505e05aed1e44b6fdf108bec
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "typescript": "^4.4.4",
