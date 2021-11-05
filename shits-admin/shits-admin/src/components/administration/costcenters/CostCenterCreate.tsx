@@ -1,7 +1,6 @@
 import React from 'react'
 import {
-        Create, SimpleForm, useNotify, useRefresh, useRedirect, TextInput, CreateProps, ErrorProps
-} from 'react-admin';
+        Create, SimpleForm, useNotify, useRefresh, useRedirect, TextInput, CreateProps } from 'react-admin';
 
 
 const CreateCostCenter = (props: CreateProps) => {

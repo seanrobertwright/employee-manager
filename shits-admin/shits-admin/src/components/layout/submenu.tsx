@@ -1,11 +1,9 @@
-import * as React from 'react';
-import { FC, Fragment, ReactElement, ReactNode } from 'react';
+import { Fragment, ReactElement, ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import {
     List,
     MenuItem,
     ListItemIcon,
-    Typography,
     Collapse,
     Tooltip,
 } from '@material-ui/core';
