@@ -6,10 +6,11 @@ import {
     ListItemIcon,
     Collapse,
     Tooltip,
+    Typography,
 } from '@material-ui/core';
 import { ReduxState } from 'ra-core';
 import { ExpandMore } from '@material-ui/icons';
-
+import { useTranslate } from 'react-admin';
 interface Props {
     dense: boolean;
     handleToggle: () => void;
@@ -20,6 +21,7 @@ interface Props {
 }
 
 const SubMenu = (props: Props) => {
+    const translate = useTranslate();
     const { handleToggle, isOpen, name, icon, children, dense } = props;
     
     const sidebarIsOpen = useSelector<ReduxState, boolean>(
@@ -31,6 +33,9 @@ const SubMenu = (props: Props) => {
             <ListItemIcon>
                 {isOpen ? <ExpandMore /> : icon}
             </ListItemIcon>
+            <Typography>
+                {translate(name)}
+            </Typography>
         </MenuItem>
 
     );

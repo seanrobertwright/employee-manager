@@ -38,3 +38,16 @@ costcenters
     -costCenterName
     -costCenterNumber
 
+orcaStep
+    -orcaId
+    -stepId
+    -stepIndex
+    -stepText
+    -dangers []
+    -hazardDescription
+    -currentRisk
+    -CorrectiveAction
+    -finalRisk
+
+
+

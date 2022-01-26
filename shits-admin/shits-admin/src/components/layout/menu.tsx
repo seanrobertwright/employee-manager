@@ -3,17 +3,21 @@ import { useState } from 'react';
 import {
     DashboardMenuItem,
     MenuProps,
+    MenuItemLink,
+    useTranslate,
 } from 'react-admin';
 
 
 // Import Application Modules
 // Add imports as more modules are added
 import employee from '../employee';
+import costcenters from '../administration/costcenters';
 import orca from '../orca';
 import safework from '../safework';
 import training from '../training';
 import SubMenu from './submenu';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import ModelTrainingIcon from '@mui/icons-material/ModelTraining';
 
 type MenuName = 'menuActionItems' | 'menuAdministration' | 'menuEmployees' | 'menuORCA' | 'menuGapAnalyses' | 'menuSafeWork' | 'menuTraining' | 'menuComplianceCalendar' | 'menuManagementReview';
 
@@ -29,6 +33,7 @@ const Menu = ({ dense = false}: MenuProps) => {
         menuComplianceCalendar: true,
         menuManagementReview: true
     });
+    const translate = useTranslate();
     const handleToggle = (menu: MenuName) => {
         setState(state => ({ ...state, [menu]: !state[menu] }));
     };
@@ -39,73 +44,84 @@ const Menu = ({ dense = false}: MenuProps) => {
             <SubMenu
                 handleToggle = {() => handleToggle('menuAdministration')}
                 isOpen={state.menuAdministration}
-                icon={AdminPanelSettingsIcon}
+                icon={<AdminPanelSettingsIcon />}
                 dense={dense}
-                name="administration">
+                name="Administration">
                 
+                <MenuItemLink
+                    to={{
+                        pathname: '/cost-centers',
+                        state: { _scrollToTop: true },
+                    }}
+                    primaryText={translate(`Cost Centers`, {
+                        smart_count: 2,
+                    })}
+                    leftIcon={<costcenters.icon />}
+                    dense={dense}
+                />
             </SubMenu>
             <SubMenu
                 handleToggle = {() => handleToggle('menuActionItems')}
                 isOpen={state.menuActionItems}
-                icon={AdminPanelSettingsIcon}
+                icon={<AdminPanelSettingsIcon />}
                 dense={dense}
-                name="actionitems">
+                name="Action Items">
                 
             </SubMenu>
             <SubMenu
                 handleToggle = {() => handleToggle('menuEmployees')}
                 isOpen={state.menuEmployees}
-                icon={AdminPanelSettingsIcon}
+                icon={<AdminPanelSettingsIcon />}
                 dense={dense}
-                name="employees">
+                name="Employees">
                 
             </SubMenu>
             <SubMenu
                 handleToggle = {() => handleToggle('menuORCA')}
                 isOpen={state.menuORCA}
-                icon={AdminPanelSettingsIcon}
+                icon={<AdminPanelSettingsIcon />}
                 dense={dense}
-                name="orca">
+                name="ORCA">
                 
             </SubMenu>
             <SubMenu
                 handleToggle = {() => handleToggle('menuGapAnalyses')}
                 isOpen={state.menuGapAnalyses}
-                icon={AdminPanelSettingsIcon}
+                icon={<AdminPanelSettingsIcon />}
                 dense={dense}
-                name="gapanalyses">
+                name="Gap Analyses">
                 
             </SubMenu>
             <SubMenu
                 handleToggle = {() => handleToggle('menuSafeWork')}
                 isOpen={state.menuSafeWork}
-                icon={AdminPanelSettingsIcon}
+                icon={<AdminPanelSettingsIcon />}
                 dense={dense}
-                name="safework">
+                name="Safe Work">
                 
             </SubMenu>
             <SubMenu
                 handleToggle = {() => handleToggle('menuTraining')}
                 isOpen={state.menuTraining}
-                icon={AdminPanelSettingsIcon}
+                icon={<ModelTrainingIcon />}
                 dense={dense}
-                name="training">
+                name="Training">
                 
             </SubMenu>
             <SubMenu
                 handleToggle = {() => handleToggle('menuComplianceCalendar')}
                 isOpen={state.menuComplianceCalendar}
-                icon={AdminPanelSettingsIcon}
+                icon={<AdminPanelSettingsIcon />}
                 dense={dense}
-                name="compliancecalendar">
+                name="Compliance Calendar">
                 
             </SubMenu>
             <SubMenu
                 handleToggle = {() => handleToggle('menuManagementReview')}
                 isOpen={state.menuManagementReview}
-                icon={AdminPanelSettingsIcon}
+                icon={<AdminPanelSettingsIcon />}
                 dense={dense}
-                name="managementreview">
+                name="Management Review">
                 
             </SubMenu>
         </div>
